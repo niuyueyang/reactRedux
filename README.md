@@ -8,3 +8,4 @@
 - connect：它是一个高阶组件 所谓高阶组件就是你给它传入一个组件，它会给你返回新的加工后的组件，注重用法倒简单，深究其原理就有点难度。这里不做connect的深究，主要是学会它的用法，毕竟想要深究必须先会使用它。首先它有四个参数([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])，后面两个参数可以不写，不写的话它是有默认值的。我们主要关注下前两个参数mapStateToProps和mapDispatchToProps。
 connect的使用方法是：把指定的state和指定的action与React组件连接起来，后面括号里面写UI组件名。
 - 除此之外demo中还多出了mapStateToProps mapDispatchToProps 他们又有什么作用呢？通俗一点讲的话就是：比如你在一个很深的UI组件里 当你想要获得store的书据就很麻烦。mapStateToProps就是告诉store你需要哪个state，需要什么数据就直接在mapStateToProps中写出来，然后store就会返回给你。同理，如果你想要dispatch派发一些行为怎么办呢，mapDispatchToProps就是告诉store你要派发什么行为，需要派发什么行为就在mapDispatchToProps中写出来，然后store就会把你想要派发的行为告诉reducer，接下来大家都应该知道了 reducer就会根据旧的state和action返回新的state。
+- 使用 redux-thunk 之后，可以dispatch一个函数了，这个函数会接收dispatch,getState作为参数，在这个函数里你就可以干你想干的事情，在任何地方随意dispatch了。
