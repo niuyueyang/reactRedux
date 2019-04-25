@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {createStore} from 'redux';
+import {createStore,combineReducers,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './index.reducer';
+import indexReducer from './index.reducer';
+import countReducer from './count.reducer';
 import Root from './router/router';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom'
+import thunk from 'redux-thunk';
 
 //创建store
-const store=createStore(reducer);
+const reducer=combineReducers({
+  indexReducerKey:indexReducer,
+  countReducerKey:countReducer,
+})
+const store=createStore(reducer,applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

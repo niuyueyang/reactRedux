@@ -5,7 +5,7 @@ class Test extends Component {
   render(){
     return(
       <div>
-        <h2>当月工资：{this.props.state.tiger}</h2>
+        <h2>当月工资：{this.props.state.indexReducerKey.tiger}</h2>
       </div>
     )
   }
